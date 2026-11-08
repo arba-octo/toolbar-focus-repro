@@ -1,0 +1,10 @@
+{
+  "before": {
+    "repository": "adobe/react-spectrum",
+    "commit": "82959b6a9ac4ea717228636b99fc8fd24736a7f4"
+  },
+  "after": {
+    "repository": "arba-octo/react-spectrum",
+    "commit": "9e2cdab2be9932af0e2db818eb0e307df5a05668"
+  }
+}

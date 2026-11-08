@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Toolbar focus · Before & after</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">React Spectrum · PR #10938</p>
+      <h1>Toolbar focus, before & after</h1>
+      <p>Reproduce a click restoring focus to the previous button. Compare the fix using real React Spectrum sources and two kinds of buttons.</p>
+      <div class="examples">
+        <a class="example" href="./before/?controls=rac"><strong>Before fix</strong><span>React Aria Button</span></a>
+        <a class="example" href="./after/?controls=rac"><strong>After fix</strong><span>React Aria Button</span></a>
+        <a class="example" href="./before/?controls=native"><strong>Before fix</strong><span>Native HTML buttons</span></a>
+        <a class="example" href="./after/?controls=native"><strong>After fix</strong><span>Native HTML buttons</span></a>
+      </div>
+      <p>Each example uses a separate document. The build verifies the exact commits in <a href="./versions.json">versions.json</a> and uses the same dependencies for both versions.</p>
+      <footer>
+        <nav aria-label="Project links">
+          <a href="https://github.com/arba-octo/toolbar-focus-repro">Source & reproduction steps</a>
+          <a href="https://github.com/adobe/react-spectrum/pull/10938">React Spectrum PR #10938</a>
+          <a href="./licenses/">Licenses</a>
+        </nav>
+      </footer>
+    </main>
+  </body>
+</html>

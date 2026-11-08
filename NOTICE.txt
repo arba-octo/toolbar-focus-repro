@@ -1,0 +1,10 @@
+Toolbar focus reproduction
+
+This demo bundles unchanged React Spectrum sources at the commits recorded in
+versions.json. React Spectrum is Copyright Adobe and is licensed under Apache-2.0.
+
+Upstream project: https://github.com/adobe/react-spectrum
+Fix under review: https://github.com/adobe/react-spectrum/pull/10938
+
+The build includes the original LICENSE and NOTICE.txt from each source checkout,
+and available license files or declarations for bundled npm packages, in dist/licenses/.

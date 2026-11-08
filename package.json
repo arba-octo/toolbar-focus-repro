@@ -1,0 +1,32 @@
+{
+  "name": "toolbar-focus-repro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Compare React Spectrum Toolbar focus behavior before and after PR #10938.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {"node": ">=24"},
+  "packageManager": "npm@11.19.0",
+  "scripts": {
+    "sources": "node scripts/prepare.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs"
+  },
+  "dependencies": {
+    "@swc/helpers": "0.5.15",
+    "aria-hidden": "1.2.4",
+    "client-only": "0.0.1",
+    "clsx": "2.0.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "use-sync-external-store": "1.6.0"
+  },
+  "devDependencies": {
+    "@parcel/config-default": "2.16.3",
+    "@parcel/core": "2.16.4",
+    "@parcel/node-resolver-core": "3.7.4",
+    "@parcel/plugin": "2.16.4",
+    "@parcel/transformer-js": "2.16.3"
+  },
+  "browserslist": ["Chrome >= 120", "Firefox >= 120", "Safari >= 17"]
+}

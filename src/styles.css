@@ -1,0 +1,30 @@
+:root { font-family: system-ui, sans-serif; color: #182230; background: #f7f9fc; line-height: 1.6; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 940px; margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); line-height: 1.2; margin: 8px 0 16px; }
+h2 { font-size: 1.1rem; margin-top: 28px; }
+p { margin: 10px 0; }
+a { color: #124fc2; text-underline-offset: 3px; }
+.eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: #526078; }
+.demo { margin: 32px 0 24px; }
+.demo > div { display: flex; flex-wrap: wrap; gap: 12px; border: 1px solid #aebacc; background: white; border-radius: 12px; padding: 22px; margin: 20px 0; width: fit-content; }
+button { font: inherit; font-weight: 600; background: white; color: inherit; border: 1px solid #7d8ca4; border-radius: 6px; padding: 10px 24px; cursor: pointer; }
+button:hover { background: #edf3ff; }
+button:focus { outline: 3px solid #0755dc; outline-offset: 3px; }
+a:focus-visible { outline: 3px solid #0755dc; outline-offset: 3px; }
+.diagnostics { display: flex; flex-wrap: wrap; gap: 28px; padding: 16px 20px; background: #eaf0fa; border-radius: 8px; }
+.diagnostics div { min-width: 150px; }
+dt { font-size: .85rem; color: #526078; }
+dd { margin: 2px 0 0; font-family: ui-monospace, monospace; font-weight: 700; }
+kbd { font: .85em ui-monospace, monospace; border: 1px solid #bbc4d1; border-radius: 4px; padding: 2px 5px; white-space: nowrap; }
+li { margin: 10px 0; }
+footer { margin-top: 32px; border-top: 1px solid #d3dbe7; padding-top: 16px; font-size: .85rem; }
+footer code { overflow-wrap: anywhere; }
+nav { display: flex; flex-wrap: wrap; gap: 18px; }
+.examples { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 32px 0; }
+.example { display: block; padding: 24px; background: white; border: 1px solid #c5cfdd; border-radius: 12px; text-decoration: none; }
+.example strong { display: block; font-size: 1.15rem; }
+.example span { color: #526078; }
+.example:hover { border-color: #124fc2; }
+@media (max-width: 540px) { .examples { grid-template-columns: 1fr; } main { padding: 24px 18px; } }
