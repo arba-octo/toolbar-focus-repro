@@ -90,7 +90,6 @@ function App() {
         <a href="../">All four examples</a>
         <a href="https://github.com/adobe/react-spectrum/pull/10938">PR #10938</a>
         <a href="./provenance.json">Build provenance</a>
-        <a href="../licenses/">Licenses</a>
       </nav>
     </footer>
   </main>;

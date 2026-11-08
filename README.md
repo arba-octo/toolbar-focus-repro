@@ -53,5 +53,3 @@ Open <http://127.0.0.1:4397/toolbar-focus-repro/>.
 ## Deployment
 
 GitHub Pages deploys automatically on pushes to `main` through [this workflow](./.github/workflows/pages.yml).
-
-The demo is Apache-2.0 licensed. The published [license page](https://arba-octo.github.io/toolbar-focus-repro/licenses/) includes original upstream notices and the available license files or declarations of bundled dependencies.

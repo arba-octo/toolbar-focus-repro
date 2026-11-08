@@ -106,7 +106,6 @@ copyFileSync(path.join(root, 'versions.json'), path.join(dist, 'versions.json'))
 
 const licenseRoot = path.join(dist, 'licenses');
 mkdirSync(licenseRoot, {recursive: true});
-const licenseLinks = [];
 function copyNotices(directory, label, prefix) {
   const names = readdirSync(directory).filter(name => /^(licen[sc]e|notice|copying)(\.|$)/i.test(name));
   // Some marker packages ship only their license declaration in package.json.
@@ -115,7 +114,6 @@ function copyNotices(directory, label, prefix) {
   for (const name of names) {
     const target = `${prefix}-${name}.txt`;
     copyFileSync(path.join(directory, name), path.join(licenseRoot, target));
-    licenseLinks.push(`<li><a href="./${encodeURIComponent(target)}">${label}: ${name}</a></li>`);
   }
 }
 for (const variant of Object.keys(versions)) {
@@ -125,8 +123,4 @@ for (const directory of [...dependencyDirectories].sort()) {
   const dependency = JSON.parse(readFileSync(path.join(directory, 'package.json'), 'utf8'));
   copyNotices(directory, `${dependency.name}@${dependency.version}`, dependency.name.replaceAll('/', '-'));
 }
-writeFileSync(path.join(licenseRoot, 'index.html'), `<!doctype html>
-<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Licenses | Toolbar focus</title><link rel="stylesheet" href="../styles.css">
-<main><h1>Source licenses & notices</h1><p>Original files from the pinned source checkouts and installed packages. If a package ships no license file, its package.json preserves the declared license.</p><ul>${licenseLinks.join('\n')}</ul><a href="../">All four examples</a></main></html>\n`);
 console.log('Ready: dist/index.html and four examples. Source maps verified for both commits.');
