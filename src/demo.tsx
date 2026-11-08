@@ -79,13 +79,13 @@ function App() {
       <ol>
         <li>Reload. Click <strong>Before</strong>, then press <kbd>Tab</kbd>, <kbd>→</kbd>, <kbd>Tab</kbd> in focus mode.</li>
         <li>Switch to browse mode with <kbd>NVDA + Space</kbd>. Press <kbd>Shift + B</kbd> three times to read Third, Second, First.</li>
-        <li>Press <kbd>Enter</kbd> immediately. Check the activated button, final focus and NVDA announcement.</li>
+        <li>Press <kbd>Enter</kbd> immediately. In both versions, <strong>First</strong> should activate, receive focus and be announced by NVDA.</li>
       </ol>
       <p>Complete the sequence without switching tabs or apps. Virtual reading position and DOM focus can differ before activation.</p>
     </section>
 
     <footer>
-      <p>Source: <a href={provenance.sourceUrl}>{provenance.repository}</a> at <a href={provenance.commitUrl}><code>{provenance.commit}</code></a></p>
+      <p>Source: <a href={provenance.sourceUrl}>{provenance.repository}</a> at <a href={provenance.commitUrl}><code>{provenance.commit.slice(0, 8)}</code></a></p>
       <nav aria-label="Reproduction links">
         <a href="../">All four examples</a>
         <a href="https://github.com/adobe/react-spectrum/pull/10938">PR #10938</a>

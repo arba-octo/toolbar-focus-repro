@@ -11,16 +11,14 @@ Reproduce Toolbar restoring focus to the previous button when another button is 
 
 ## Source provenance
 
-The demo imports the real `Toolbar` and `Button` components from React Spectrum source exports. Native examples render ordinary `<button>` elements inside that same Toolbar.
+Both versions use real React Spectrum sources and the same dependencies. Native examples render HTML `<button>` elements inside the same `Toolbar`.
 
 [`versions.json`](./versions.json) pins two complete commits:
 
 - Before: [`adobe/react-spectrum@82959b6a`](https://github.com/adobe/react-spectrum/commit/82959b6a9ac4ea717228636b99fc8fd24736a7f4).
 - After: [`arba-octo/react-spectrum@9e2cdab2`](https://github.com/arba-octo/react-spectrum/commit/9e2cdab2be9932af0e2db818eb0e307df5a05668), the PR commit.
 
-[`prepare.mjs`](./scripts/prepare.mjs) fetches these commits with Git and verifies each SHA, remote and clean checkout. [`parcel-resolver.cjs`](./scripts/parcel-resolver.cjs) resolves workspace imports directly to the corresponding checkout. [`build.mjs`](./scripts/build.mjs) builds each version separately, verifies that the real `useToolbar.ts` is bundled, and checks its source-map content against the pinned file. The build fails if these checks do not match.
-
-Both builds share the same dependency lockfile and page code. Each example exposes its commit, source link and Toolbar SHA256 in `provenance.json`. GitHub Actions logs both verified commits. The page only renders the controls and records focus/activation; it does not implement or patch Toolbar behavior.
+The [build scripts](./scripts/) verify the pinned commits and bundled sources. Each example links to its source and build provenance.
 
 ## Reproduce with a mouse
 
@@ -34,11 +32,11 @@ This sequence was verified in Chrome 156 for all four examples on 2026-11-08. Bo
 
 1. Reload. Click **Before**, then press **Tab**, **Right Arrow**, **Tab** in focus mode.
 2. Switch to browse mode with **NVDA+Space**. Press **Shift+B** three times to read Third, Second, First.
-3. Immediately press **Enter**. Check **Last activated**, the final focus outline and the spoken button name.
+3. Immediately press **Enter**. In both versions, expect **Last activated: First**, focus on **First**, and NVDA announcing First.
 
-Complete the sequence without switching apps or moving the mouse between reading and activation. The virtual reading position can differ from DOM focus before activation. Diagnostics do not move focus or use live announcements. For inspection, `window.toolbarCheck.read()` returns the most recent page events.
+Complete the sequence without switching apps or moving the mouse between reading and activation. The virtual reading position can differ from DOM focus before activation.
 
-The original local fixture was manually checked with NVDA 2026.3 and Chrome 156 on Windows on 2026-11-08: browse-mode activation ended on First in both versions and with both button types. An intermediate focus restoration to Second occurred in both versions. This is a limited reproduction, not a claim about every browser or screen reader.
+The published HTML-button examples passed this manual check before and after the fix with NVDA 2026.3 and Chrome 156 on Windows on 2026-11-08. The earlier local check passed with both button types; both versions briefly restored focus to Second before ending on First.
 
 ## Run locally
 
@@ -50,10 +48,10 @@ npm run build
 npm run preview
 ```
 
-Open <http://127.0.0.1:4397/toolbar-focus-repro/>. The build fetches only the required source directories into ignored `.sources/` checkouts. It installs no dependencies in the React Spectrum monorepo. The two development React bundles are intentionally unminified for inspection.
+Open <http://127.0.0.1:4397/toolbar-focus-repro/>.
 
 ## Deployment
 
-GitHub Pages uses GitHub Actions as its publishing source. [The workflow](./.github/workflows/pages.yml) runs on pushes to `main` and can be started manually. It builds from the lockfile and pinned source commits, then publishes `dist/`. Relative asset URLs support the project site path.
+GitHub Pages deploys automatically on pushes to `main` through [this workflow](./.github/workflows/pages.yml).
 
 The demo is Apache-2.0 licensed. The published [license page](https://arba-octo.github.io/toolbar-focus-repro/licenses/) includes original upstream notices and the available license files or declarations of bundled dependencies.
